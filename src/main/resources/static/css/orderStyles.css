@@ -144,3 +144,12 @@ input[type="submit"]:hover {
     padding: 10px;
     margin-top: 20px;
 }
+
+/* Стили для отображения ошибки */
+.validationError {
+    display: inline-block;
+    margin-top: 5px;
+    color: #d9534f; /* Красный цвет для текста ошибки */
+    font-size: 14px;
+    font-weight: bold;
+}
