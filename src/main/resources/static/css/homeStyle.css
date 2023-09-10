@@ -1,0 +1,84 @@
+/* Стили для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для заголовка страницы */
+h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Стили для изображения Taco Cloud */
+img {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: auto;
+    animation: scaleIn 1s ease-in-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Стили для кнопки заказа */
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Чтобы кнопка была посередине вертикально */
+    text-align: center; /* Чтобы текст внутри кнопки был посередине */
+}
+
+a button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    animation: slideIn 1s ease-in-out;
+}
+
+a button:hover {
+    background-color: #0056b3;
+}
+
+/* Анимация для кнопки */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

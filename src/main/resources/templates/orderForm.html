@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/css/orderStyles.css}" />
+</head>
+<body>
+<form method="POST" th:action="@{/orders}" th:object="${tacoOrder}">
+    <h1>Order your taco creations!</h1>
+    <img th:src="@{/images/taco.gif}" height="100" width="100"/>
+    <h3>Your tacos in this order:</h3>
+    <a th:href="@{/design}" id="another">Design another taco</a><br/>
+    <ul>
+        <li th:each="taco : ${tacoOrder.tacos}">
+            <span th:text="${taco.name}">taco name</span></li>
+    </ul>
+    <h3>Deliver my taco masterpieces to...</h3>
+    <label for="deliveryName">Name: </label>
+    <input type="text" th:field="*{deliveryName}"/>
+    <br/>
+    <label for="deliveryStreet">Street address: </label>
+    <input type="text" th:field="*{deliveryStreet}"/>
+    <br/>
+    <label for="deliveryCity">City: </label>
+    <input type="text" th:field="*{deliveryCity}"/>
+    <br/>
+    <label for="deliveryState">State: </label>
+    <input type="text" th:field="*{deliveryState}"/>
+    <br/>
+    <label for="deliveryZip">Zip code: </label>
+    <input type="text" th:field="*{deliveryZip}"/>
+    <br/>
+    <h3>Here’s how I’ll pay...</h3>
+    <label for="ccNumber">Credit Card #: </label>
+    <input type="text" th:field="*{ccNumber}"/>
+    <br/>
+    <label for="ccExpiration">Expiration: </label>
+    <input type="text" th:field="*{ccExpiration}"/>
+    <br/>
+    <label for="ccCVV">CVV: </label>
+    <input type="text" th:field="*{ccCVV}"/>
+    <br/>
+    <input type="submit" value="Submit Order"/>
+
+    <div id="confirmation" class="hidden">
+        <p>Заказ получен, ожидайте доставки.</p>
+        <p id="deliveryTime"></p>
+    </div>
+</form>
+
+
+<script>
+    // Получаем ссылки на элементы формы
+    const form = document.querySelector('form');
+    const submitButton = document.getElementById('submitButton');
+    const confirmationDiv = document.getElementById('confirmation');
+    const deliveryTime = document.getElementById('deliveryTime');
+
+    // Добавляем обработчик события для отправки формы
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Предотвращаем отправку формы
+        // Показываем подтверждение заказа и устанавливаем время доставки
+        confirmationDiv.style.display = 'block';
+        const currentTime = new Date();
+        deliveryTime.textContent = 'Ожидайте доставки. Время доставки: ' + (currentTime.getHours() + 1) + ':' + currentTime.getMinutes();
+        // Можно здесь выполнить отправку данных формы на сервер
+    });
+</script>
+</body>
+</html>

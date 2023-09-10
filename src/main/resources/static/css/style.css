@@ -1,0 +1,23 @@
+.product-item{
+    width: 300px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    border-bottom: 2px solid #F5F5F5;
+    background: white;
+    font-family: "Open Sans";
+
+}
+
+.product{
+    display: flex;
+}
+
+.product-list{
+    background: #fafafa;
+    padding: 5px 0;
+}
+
+.img-class{
+    height: 100% ;
+    width: 100%;
+}
